@@ -136,4 +136,23 @@ class ProductosController extends Controller
         header('Location: /productos');
         exit; // Asegurarse de que el script no continúe ejecutándose
     }
+    // Procesar la eliminación de un producto existente
+    public function delete($id)
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            try {
+                $productosModel = new ProductosModel($this->conn);
+                $productosModel->deleteProducto($id);
+                echo json_encode([
+                    'success' => true,
+                    'message' => 'Producto eliminado exitosamente.'
+                ]);
+                //$this->showFormWithSuccess('Producto eliminado exitosamente.', 'Eliminar Producto');
+            } catch (Exception $e) {
+                $this->showFormWithError('Error al eliminar la producto: ' . $e->getMessage(), 'Eliminar Producto');
+            }
+        } else {
+            $this->showFormWithError('Método no permitido para esta operación.', 'Eliminar Producto');
+        }
+    }
 }

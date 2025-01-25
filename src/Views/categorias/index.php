@@ -46,7 +46,7 @@
                                     <td><?= strtoupper($categoria['name']); ?></td>
                                     <td>
                                         <a href="/editar-categoria/<?= $categoria['id']; ?>" class="btn btn-warning btn-sm">Editar</a>
-                                        <a href="#" class="btn btn-danger btn-sm">Eliminar</a>
+                                        <button name="<?=$categoria['name'];?>" data-id="<?= $categoria['id']; ?>" data-route="eliminar-categoria" data-type="categoria" class="btn btn-danger btn-sm eliminar">Eliminar</button>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

@@ -126,4 +126,23 @@ class CategoriasController extends Controller
         header('Location: /categorias');
         exit; // Asegurarse de que el script no continúe ejecutándose
     }
+
+    // Procesar la eliminación de una categoría existente
+    public function delete($id)
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            try {
+                $categoriasModel = new CategoriasModel($this->conn);
+                $categoriasModel->deleteCategoria($id);
+                echo json_encode([
+                    'success' => true,
+                    'message' => 'Categoria eliminada exitosamente.'
+                ]);
+            } catch (Exception $e) {
+                $this->showFormWithError('Error al eliminar la categoría: ' . $e->getMessage(), 'Eliminar Categoría');
+            }
+        } else {
+            $this->showFormWithError('Método no permitido para esta operación.', 'Eliminar Categoría');
+        }
+    }
 }

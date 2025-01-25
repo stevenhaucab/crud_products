@@ -71,7 +71,7 @@ class CategoriasModel {
      * @return bool
      */
     public function deleteCategoria($id) {
-        $query = 'DELETE categorias WHERE id = :id';
+        $query = 'DELETE FROM categorias WHERE id = :id';
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(':id', $id);
         return $stmt->execute();

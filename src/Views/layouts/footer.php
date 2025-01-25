@@ -23,5 +23,8 @@
 
 <!-- Core JS -->
 <script src="/js/app.min.js"></script>
+<!-- JS Custom -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/js/myScript.js"></script>
 </body>
 </html>

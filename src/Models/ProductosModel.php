@@ -67,4 +67,15 @@ class ProductosModel {
         $stmt->bindParam(':id', $id);
         return $stmt->execute();
     }
+    /**
+     * Elimina un producto existente en la base de datos.
+     * @param int $id
+     * @return bool
+     */
+    public function deleteProducto($id) {
+        $query = 'DELETE FROM productos WHERE id = :id';
+        $stmt = $this->db->prepare($query);
+        $stmt->bindParam(':id', $id);
+        return $stmt->execute();
+    }
 }
