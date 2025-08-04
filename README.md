@@ -1,5 +1,5 @@
 
-# Prueba Tecnica
+# Prueba Tecnica MD
 
 Sistema para control de productos y categorias.
 ## Instrucciones
